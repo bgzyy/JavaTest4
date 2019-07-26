@@ -26,15 +26,16 @@ public class FilmController {
 
     @GetMapping("/film/list")
     public List<Film> getList(Page page) {
-        PageHelper.startPage(page.getPage(), page.getPageSize(), page.getSort());
-        List<Film> filmList = filmService.getFilmList();
-        String order;
-        if (page.getSort() == "DESC") {
-            order = "降序";
-        } else {
+        System.out.println(page.getPage() + "============");
+        PageHelper.startPage(page.getPage(), page.getPageSize(), "title " + page.getSort());
+
+        String order = "降序";
+        if (page.getSort() == "ASC") {
             order = "升序";
         }
-        logger.info("===============查询出每页数量为" + page.getPageSize() + "的第 "  + page.getPage() + " 页数据，排序顺序为 " + order + "==================================");
+
+        List<Film> filmList = filmService.getFilmList();
+        logger.info("====================== 查询出每页数量为 " + page.getPageSize() + " 的第 "  + page.getPage() + " 页数据，排序顺序为" + order + "======================");
         return filmList;
     }
 }
