@@ -1,7 +1,7 @@
 ## 编译构建项目
 
 1. 步骤
-   - `git clone git@github.com:bgzyy/JavaTest4.git`	           # 克隆项目到本地
+   - `git clone https://github.com/bgzyy/JavaTest4.git`	           # 克隆项目到本地
    - `./build.sh`                                                                             # 编译项目以及 Docker 镜像
    - `./start.sh`                                                                             # 执行 docker-compose 启动镜像
 2. 发送请求
