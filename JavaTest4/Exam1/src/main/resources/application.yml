@@ -1,0 +1,18 @@
+server:
+  port: 18080
+
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    password: 961029
+    username: root
+    url: jdbc:mysql://192.168.145.100:3306/sakila?allowMultiQueries=true&characterEncoding=utf8
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  params: count=countSql

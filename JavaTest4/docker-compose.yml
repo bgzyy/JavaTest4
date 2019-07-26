@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  hand_java:
+    container_name: hand_java
+    build: ./docker/java
+    image: hand/hand_java:1.0
+    depends_on:
+      - hand_mysql
+    links:
+      - hand_mysql
+    ports:
+      - "18080:18080"
+    environment:
+      MYSQL_IP: hand_mysql
+      MYSQL_PORT: 3306
+  hand_mysql:
+    container_name: hand_mysql
+    build: ./docker/mysql
+    image: hand/hand_mysql:1.0
+    ports:
+      - "3306:3306"
+    volumes:
+      - /home/mysql/self_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 961029

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hand.exam.dao.UserMapper">
+    <insert id="insertUser" useGeneratedKeys="true" keyColumn="customer_id" keyProperty="customerId">
+        INSERT INTO customer (store_id, first_name, last_name, email, address_id, active, create_date, last_update)
+        VALUES (1, #{userName}, #{password}, #{email}, 1, 1, '2006-02-14 22:04:36', '2006-02-15 04:57:20');
+    </insert>
+    <update id="updateUserById">
+        UPDATE customer
+        SET first_name = 'bgzyy', last_name = 'smzyy', email = 'bg@163.com'
+        where customer_id = #{id}
+    </update>
+    <delete id="deleteUserById">
+      DELETE FROM customer WHERE customer_id = #{id}
+    </delete>
+    <select id="selectUser" resultType="java.lang.Integer">
+        SELECT count(*)
+        FROM customer
+        WHERE first_name = #{userName}
+          AND last_name = #{password}
+    </select>
+    <select id="selectUserById" resultType="com.hand.exam.bean.User">
+        SELECT first_name userName, last_name password, email
+        FROM customer
+        WHERE customer_id = #{id};
+    </select>
+</mapper>
