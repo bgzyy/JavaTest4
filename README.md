@@ -2,8 +2,10 @@
 
 1. 步骤
    - `git clone https://github.com/bgzyy/JavaTest4.git`	           # 克隆项目到本地
-   - `./build.sh`                                                                             # 编译项目以及 Docker 镜像
-   - `./start.sh`                                                                             # 执行 docker-compose 启动镜像
+   - `cd JavaTest4/JavaTest4`                                                              # 进入项目根目录
+   - `chmod 755 *.sh docker/java/*.sh`                                             # 修改所有 sh 脚本权限为可执行
+   - `./build.sh`                                                                                     # 编译项目以及 Docker 镜像
+   - `./start.sh`                                                                                     # 执行 docker-compose 启动镜像
 2. 发送请求
    - 等待 SpringBoot 项目完全启动之后执行 `./curl.sh`
 3. 结束请求
