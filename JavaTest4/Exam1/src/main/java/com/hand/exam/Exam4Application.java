@@ -11,5 +11,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Exam4Application {
     public static void main(String[] args) {
         SpringApplication.run(Exam4Application.class, args);
+        System.out.println("HelloWorld");
     }
 }
